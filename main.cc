@@ -2,8 +2,8 @@
 #include "vec3d.h"
 
 int main() {
-    int width = 200;
-    int height = 100;
+    int width = 800;
+    int height = 600;
     std::cout << "P3\n" << width << " " << height << "\n255\n";
     for (int i = height-1; i >=0; i--) {
         for (int j = 0; j < width; j++) {
