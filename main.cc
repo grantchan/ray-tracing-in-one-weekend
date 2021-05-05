@@ -1,5 +1,6 @@
 #include <iostream>
-#include "vec3d.h"
+#include "ray.h"
+#include "vec3.h"
 
 int main() {
     int width = 800;
@@ -7,7 +8,7 @@ int main() {
     std::cout << "P3\n" << width << " " << height << "\n255\n";
     for (int i = height-1; i >=0; i--) {
         for (int j = 0; j < width; j++) {
-            vec3d v(double(j) / double(width), (double)i / (double)height, 0.2);
+            vec3<double> v(double(j) / double(width), (double)i / (double)height, 0.2);
             int r = int(255.99 * v.x());
             int g = int(255.99 * v.y());
             int b = int(255.99 * v.z());

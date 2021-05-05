@@ -1,22 +1,19 @@
 #ifndef RAY_H
 #define RAY_H
 
-#include "vec3d.h"
+#include "vec3.h"
 
 class ray {
 public:
-    ray(const vec3d& org, const vec3d& dir) : _org(org), _dir(dir) {}
-    ray(const ray& r) {
-        _org = r._org;
-        _dir = r._dir;
-    }
+    ray(const vec3<double>& org, const vec3<double>& dir) : _org(org), _dir(dir) {}
+    ray(const ray& r) : _org(r.origin()), _dir(r.direction()) {}
 
-    vec3d origin() const { return _org; }
-    vec3d direction() const { return _dir; }
-    vec3d at(double t) const { return _org + t * _dir; }
+    vec3<double> origin() const { return _org; }
+    vec3<double> direction() const { return _dir; }
+    vec3<double> at(double t) const { return _org + t * _dir; }
 
 private:
-    vec3d _org, _dir;
+    vec3<double> _org, _dir;
 };
 
 #endif
