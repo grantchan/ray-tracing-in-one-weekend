@@ -17,9 +17,11 @@ public:
         return std::sqrt(_x*_x + _y*_y + _z*_z);
     }
     
+    // unary operator overloading
     const vec3<T> operator+() { return *this; }
     const vec3<T> operator-() { return vec3<T>(-_x, -_y, -_z); }
     
+    // binary operator overloading
     const vec3<T> operator+(const int rhs) const { return vec3<T>(_x + rhs, _y + rhs, _z + rhs); }
     const vec3<T> operator+(const float rhs) const { return vec3<T>(_x + rhs, _y + rhs, _z + rhs); }
     const vec3<T> operator+(const double rhs) const { return vec3<T>(_x + rhs, _y + rhs, _z + rhs); }

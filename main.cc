@@ -27,8 +27,11 @@ int main() {
         for (int j = 0; j < img_width; j++) {
             double u = double(j) / (img_width-1);
 
-            ray r(origin, lower_left_corner + u*x_offset + v*y_offset - origin);
-            vec3<double> unit_dir = unit_vector(r.direction());
+            point dir = lower_left_corner;
+            dir += u*x_offset;
+            dir += v*y_offset;
+            dir -= origin;
+            vec3<double> unit_dir = unit_vector(dir);
             double t = 0.5*(unit_dir.y() + 1.0);
             vec3<double> cc = 255.999 * (vec3<double>(1.0-t, 1.0-t, 1.0-t) + t*vec3<double>(0.5, 0.7, 1.0));
 
