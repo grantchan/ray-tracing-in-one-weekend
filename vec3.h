@@ -1,6 +1,8 @@
 #ifndef VEC3_H
 #define VEC3_H
 
+#include <cmath>
+
 template <class T>
 class vec3 {
 public:
@@ -10,6 +12,10 @@ public:
     T x() const { return _x; }
     T y() const { return _y; }
     T z() const { return _z; }
+
+    double length() const {
+        return std::sqrt(_x*_x + _y*_y + _z*_z);
+    }
     
     const vec3<T> operator+() { return *this; }
     const vec3<T> operator-() { return vec3<T>(-_x, -_y, -_z); }
@@ -61,6 +67,11 @@ private:
 };
 
 template <class T>
+vec3<T> unit_vector(vec3<T> v) {
+    return v / v.length();
+}
+
+template <class T>
 const vec3<T> operator+(const int lhs, const vec3<T>& rhs) { return vec3<T>(lhs + rhs.x(), lhs + rhs.y(), lhs + rhs.z()); }
 template <class T>
 const vec3<T> operator+(const float lhs, const vec3<T>& rhs) { return vec3<T>(lhs + rhs.x(), lhs + rhs.y(), lhs + rhs.z()); }
@@ -73,5 +84,8 @@ template <class T>
 const vec3<T> operator*(const float lhs, const vec3<T>& rhs) { return vec3<T>(lhs * rhs.x(), lhs * rhs.y(), lhs * rhs.z()); }
 template <class T>
 const vec3<T> operator*(const double lhs, const vec3<T>& rhs) { return vec3<T>(lhs * rhs.x(), lhs * rhs.y(), lhs * rhs.z()); }
+
+using color = vec3<int>;
+using point = vec3<double>;
 
 #endif
