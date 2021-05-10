@@ -13,6 +13,12 @@ public:
     T y() const { return _y; }
     T z() const { return _z; }
 
+    double dot(const vec3<T> rhs) const {
+        return _x * rhs.x()
+             + _y * rhs.y()
+             + _z * rhs.z();
+    }
+
     double length() const {
         return std::sqrt(_x*_x + _y*_y + _z*_z);
     }
