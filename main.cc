@@ -45,7 +45,7 @@ int main() {
 
                 std::cout << c.x() << ' ' << c.y() << ' ' << c.z() << '\n';
             } else {
-                vec3<double> unit_dir = unit_vector(r.direction());
+                vec3<double> unit_dir = r.direction().unit();
                 double t = 0.5*(unit_dir.y() + 1.0);
                 vec3<double> cc = 255.999 * (vec3<double>(1.0-t, 1.0-t, 1.0-t) + t*vec3<double>(0.5, 0.7, 1.0));
 
